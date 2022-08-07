@@ -1,0 +1,72 @@
+<main>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">REGISTER FORM</h5>
+          <form action="" [formGroup] ="registerForm" (ngSubmit)= "registerUser()">
+            <span *ngIf="errormsg">{{errormsg}}</span>
+    
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Firstname</label>
+                <input type="text" class="form-control" name="firstname" formControlName="firstname"  placeholder="Jon Doe">
+                <div>
+                  <span *ngIf="registerForm.get('firstname')?.errors?.['required'] && registerForm.get('firstname')?.touched">fistname is required</span>
+                </div>
+                <div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Lastname</label>
+                <input type="text" class="form-control" name="lastname" formControlName="lastname"  placeholder="Jon Doe">
+                <div>
+                  <span *ngIf="registerForm.get('lastname')?.errors?.['required'] && registerForm.get('lastname')?.touched">lastname is required</span>
+                </div>
+                <div>
+                </div>
+              </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email</label>
+              <input type="email" class="form-control" name="Email" formControlName="email"  placeholder="name@example.com">
+              <div>
+                <span *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched">email is required</span>
+              </div>
+              <div>
+                <span *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched">must be a valid email</span>
+              </div>
+            </div>
+    
+            <div formGroupName="passwordGroup">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" formControlName="password"  placeholder="######">
+                <div>
+                  <span *ngIf="registerForm.get('passwordGroup.password')?.errors?.['required'] && registerForm.get('passwordGroup.password')?.touched">password is required</span>
+                  <span *ngIf="registerForm.get('passwordGroup.password')?.errors?.['minlength'] && registerForm.get('passwordGroup.password')?.touched">password must be six characters or more</span>
+                </div>
+              
+              </div>
+    
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" name="confirmPassword" formControlName="confirmPassword"  placeholder="######">
+                <div>
+                  <span *ngIf="registerForm.get('passwordGroup.confirmPassword')?.errors?.['required'] && registerForm.get('passwordGroup.confirmPassword')?.touched">Confirm password is required</span>
+                  <span *ngIf="registerForm.get('passwordGroup.confirmPassword')?.errors?.['minlength'] && registerForm.get('passwordGroup.confirmPassword')?.touched">password must be six characters or more</span>
+                  <span *ngIf="registerForm.get('passwordGroup')?.errors?.['match']">Passwords do not match</span>
+                </div>
+              </div>
+            </div>
+    
+            
+    
+            <div class="btn-container">
+              <button type="submit" [disabled] ="registerForm.invalid" class="btn btn-primary mb-3">
+                <small *ngIf ="show" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></small>
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+</main>
+
+

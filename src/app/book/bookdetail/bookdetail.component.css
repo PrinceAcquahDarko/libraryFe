@@ -1,0 +1,14 @@
+.card{
+    width:90%;
+
+}
+
+.content{
+    margin-top: 3em;
+}
+
+.similar{
+    height: 600px;
+    overflow-y: scroll;
+    margin-top:10px;
+}

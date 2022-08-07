@@ -1,0 +1,46 @@
+main{
+    padding: 70px 0;
+}
+.card{
+    width:22rem;
+    min-height:27rem;
+    color: rgb(255, 255, 255) !important;
+    margin: auto;
+    border:none;
+
+}
+
+
+
+.card-body > h5{
+    text-align: center;
+}
+
+
+form {
+    margin-top: 20px;
+}
+
+.btn-container{
+    margin-top: 2em;
+    /* margin-bottom: 5em; */
+    text-align: center;
+}
+
+span{
+    color: red;
+}
+
+button{
+    border-radius:20px;
+    padding: 10px 30px 10px 30px;
+}
+
+@media only screen and (max-width: 800px) {
+    .card{
+        width:17rem;
+        /* margin-top: 3em; */
+       
+    }
+    
+}

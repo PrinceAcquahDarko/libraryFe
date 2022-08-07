@@ -1,0 +1,32 @@
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+a{
+    color: #fff;
+}
+
+.inputContainer{
+    margin-top: 10px;
+}
+
+.dropdown-toggle{
+    color:white;
+}
+
+.dropdown-toggle:hover{
+    border:none
+}
+
+.inputContainer > input{
+    width: 450px;
+    background-color: #292a2d;
+    border-color: #292a2d;
+    color:white;
+}
+
+ul{
+    background-color: #292a2d;
+}
