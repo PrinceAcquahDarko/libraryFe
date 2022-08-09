@@ -43,5 +43,9 @@ export class HeaderComponent implements OnInit {
    return this.router.navigate(['/'])
 
   }
+  
+  createBook(){
+    return this.router.navigate(['admin/upload'])
+  }
 
 }

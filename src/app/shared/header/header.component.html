@@ -23,7 +23,7 @@
                   <li><a class="dropdown-item" (click)="allBooks()">books</a></li>
                   <li  *ngIf="userInfo"><a class="dropdown-item"  (click)="issuedbook()">Issued books</a></li>
                   <li *ngIf="userInfo" (click)="user()"><a class="dropdown-item" >status: {{userInfo?.admin ? 'admin' : 'user'}}</a></li>
-                  <li *ngIf="userInfo?.admin"><a class="dropdown-item" >create book</a></li>
+                  <li *ngIf="userInfo?.admin" (click)="createBook()"><a class="dropdown-item" >create book</a></li>
                   <li (click)="auth()" ><a class="dropdown-item" >{{userInfo ? 'logout' : 'login'}}</a></li>
                 </ul>
               </div>

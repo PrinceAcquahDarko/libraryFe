@@ -22,7 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'register', component: AdminRegisterComponent
-  }
+  },
+  {
+    path: 'upload', component: UploadBookComponent
+  },
+
 
 ];
 

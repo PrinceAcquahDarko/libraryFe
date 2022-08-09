@@ -90,7 +90,6 @@ export class BookComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    console.log('after')
     let book = {...history.state}
 
     if(book._id){

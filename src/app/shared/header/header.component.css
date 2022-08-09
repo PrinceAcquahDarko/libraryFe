@@ -41,11 +41,15 @@ ul > li > a{
     background-color: #292a2d;
 }
 
+a:hover{
+    color:white;
+}
+
 
 
 
 @media only screen and (max-width: 800px) {
-    ul{margin-right: 25px}
+    ul{margin-left: -6em}
   
     svg{
         margin-top:-8px

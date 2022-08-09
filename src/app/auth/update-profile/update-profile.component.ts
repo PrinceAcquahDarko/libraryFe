@@ -43,9 +43,9 @@ export class UpdateProfileComponent implements OnInit {
   ngOnInit(): void {
     this._as.getUser().subscribe(
       res => {
-        this.userCredentials.firstname = res.firstname;
-        this.userCredentials.lastname = res.lastname;
-        this.userCredentials.email = res.email;
+        this.userCredentials.firstname = res.loginUser.firstname;
+        this.userCredentials.lastname = res.loginUser.lastname;
+        this.userCredentials.email = res.loginUser.email;
       }
     )
   }
