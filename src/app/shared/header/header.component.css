@@ -42,8 +42,8 @@ ul > li > a{
     cursor:pointer
 }
 
-ul > li > a:hover{
-    color:white;
+ a:hover{
+    color:blue;
 }
 
 
