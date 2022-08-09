@@ -54,17 +54,17 @@ export class RegisterComponent implements OnInit {
       let data = this.formatValue()
       this._as.registerUser(data).subscribe(
         res => {
-          localStorage.setItem('token', JSON.stringify(res.token));
-          localStorage.setItem('fullname', JSON.stringify(data.firstname, data.lastname));
-          this.router.navigate(['dashboard'])
+          let user = this.userDetails(res.load)
+          localStorage.setItem('user', JSON.stringify(user));
+          this.show = false;
+          this.router.navigate(['/'])
         },
         err => {
           console.log(err)
-          this.errormsg = err;
+          this.errormsg = err.message;
           this.show = false
 
-        },
-        () => this.show = false
+        }
       )
     }
     // alert(this.registerForm.value)
@@ -76,6 +76,14 @@ export class RegisterComponent implements OnInit {
       lastname : this.registerForm.value.lastname,
       email : this.registerForm.value.email,
       password : this.registerForm.value.passwordGroup.password
+    }
+  }
+
+  userDetails(data:any){
+    return{
+      token:data.token,
+      fullname : `${data.firstname}`,
+      admin: data.admin
     }
   }
 

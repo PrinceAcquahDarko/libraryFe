@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports:[
     HeaderComponent,
+    FolderComponent,
     ReactiveFormsModule,
     FormsModule
   ]

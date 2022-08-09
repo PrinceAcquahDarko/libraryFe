@@ -8,48 +8,33 @@
             <div class="card">
                 <img src="assets/default.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
+                  <h5 class="card-title">{{book.title}}</h5>
                 </div>
               </div>
-              <div class="content">
-                  <h5>Author:</h5>
-                   <p>Prince Darko</p>
-
-                   <h5>Summary: </h5>
-                   <p>Lorem ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi vero saepe voluptatem esse ipsum fuga placeat libero totam maxime. sit amet consectetur adipisicing elit. Hic sunt magni quisquam quibusdam pariatur repellat dolores sapiente praesentium illo ipsa!</p>
-                   <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+              
           </div>
          
           
-          <div class="col-md-4">
-            books by same Author
-            <div class="container similar text-center">
+          <div class="col-md-4 content" >
+            <div class="container ">
                 <div class="row">
-                  <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="assets/default.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="assets/default.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="assets/default.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                        </div>
-                      </div>
-                  </div>
+                  <div >
+                    <h5>Author</h5>
+                     <p>{{book.author}}</p>
+  
+                     <h5>Summary </h5>
+                     <p>Lorem ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi vero saepe voluptatem esse ipsum fuga placeat libero totam maxime. sit amet consectetur adipisicing elit. Hic sunt magni quisquam quibusdam pariatur repellat dolores sapiente praesentium illo ipsa!</p>
+                     <div *ngIf="!userInfo.admin">
+                       <a href="#" class="btn btn-primary">Issue</a>
+                     </div>
+  
+                     <div *ngIf="userInfo.admin" class="adminbtns">
+                      <button type="button" (click)="updateBook()" class="btn btn-outline-danger"  (click)="deleteBook()">Update</button>
+                      <!-- <a  class="btn btn-primary" (click)="updateBook()">Update</a> -->
+                      <!-- <a  class="btn btn-primary">Delete</a> -->
+                      <button type="button" class="btn btn-outline-danger"  (click)="deleteBook()">Delete</button>
+                    </div>
+                </div>
         
                  
                 </div>

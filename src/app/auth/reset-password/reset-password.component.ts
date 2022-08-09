@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 
 function passwordMatcher(c: AbstractControl): { [key:string]: boolean } | null {
@@ -34,13 +36,38 @@ export class ResetPasswordComponent implements OnInit {
     }, {validators: passwordMatcher}),
 
   })
-  constructor(private fb: FormBuilder,) { }
+  userEmail:any
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private _as:AuthService) { }
 
   ngOnInit(): void {
+    this.userEmail = this.route.snapshot.paramMap.get("email")
+
   }
 
   updatePassword(){
-    
+    this.show = true
+    let password = this.formatValue();
+
+    this._as.updatePassword(password, this.userEmail).subscribe(
+      res =>{
+        this.show = false;
+        console.log(res)
+      },
+      err => {
+        this.show = false;
+        this.errormsg = err.message
+        console.log(err)
+      }
+
+    )
+
+
+  }
+
+  formatValue(){
+    return {
+      password : this.registerForm.value.passwordGroup.password
+    }
   }
 
 }

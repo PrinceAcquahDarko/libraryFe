@@ -1,97 +1,52 @@
 <app-header></app-header>
 <main>
-    <ul  class="list-group list-group-horizontal navbar fixed-top flex-fill">
-        <li class="list-group-item">All</li>
-        <li class="list-group-item">Education</li>
-        <li class="list-group-item">Football</li>
-        <li class="list-group-item">Entertainment</li>
-        <li class="list-group-item">Wildlife</li>
-      </ul>
+    
 
-    <div class="container bookscontainer text-center">
-        <div class="row">
-          <div class="col">
+    <div class="container bookscontainer text-center" *ngIf="allBookWithSearch$ | async as allBook else loadingOrError">
+      <div class="searchbar">
+        <input  class="form-control" (keyup)="search($event)" [(ngModel)]='plainSearch'  name="search" placeholder="search by title">
+      
+      </div>
+      <div class="row">
+          <div *ngFor="let book of allBook " class="col-md-4 com-sm-12">
             <div class="card" style="width: 18rem;">
                 <img src="assets/default.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
+                  <h5 class="card-title" (click)="bookdetail(book._id)">{{book.title}}</h5>
                 </div>
               </div>
           </div>
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="assets/default.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-              </div>
-          </div>
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="assets/default.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-              </div>
-          </div>
+        
 
          
         </div>
-        <div class="row">
-            <div class="col">
-              <div class="card" style="width: 18rem;">
-                  <img src="assets/default.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                </div>
-            </div>
-            <div class="col">
-              <div class="card" style="width: 18rem;">
-                  <img src="assets/default.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                </div>
-            </div>
-            <div class="col">
-              <div class="card" style="width: 18rem;">
-                  <img src="assets/default.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                </div>
-            </div>
-  
-           
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="card" style="width: 18rem;">
-                  <img src="assets/default.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                </div>
-            </div>
-            <div class="col">
-              <div class="card" style="width: 18rem;">
-                  <img src="assets/default.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                </div>
-            </div>
-            <div class="col">
-              <div class="card" style="width: 18rem;">
-                  <img src="assets/default.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                </div>
-            </div>
-  
-           
-          </div>
+
+         
         </div>
+
+
+
+        <ng-template #loadingOrError>
+          <ng-container *ngIf="errormsg; else loading">
+            <div  class="errors">
+              <div>
+                {{errormsg}}
+        
+              </div>
+        
+            </div>
+          </ng-container>
+          <ng-template #loading>
+            <div  class="errors">
+              <div>
+                <span  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+
+        
+              </div>
+        
+            </div>
+          </ng-template>
+        </ng-template>
+        
 </main>
+

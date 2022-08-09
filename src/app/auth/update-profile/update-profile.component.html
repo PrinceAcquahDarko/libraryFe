@@ -1,0 +1,89 @@
+<main>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">UPDATE USER FORM</h5>
+          <form action="" #form="ngForm" (ngSubmit)="updateUser()">
+            <small *ngIf="errormsg">{{errormsg}}</small>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Firstname</label>
+                <input type="text" #firstnameField = 'ngModel' class="form-control"  [(ngModel)]="userCredentials.firstname" required name="firstname"  placeholder="Prince">
+                <small [hidden] = "firstnameField.valid || firstnameField.untouched">firstname is required</small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">lastname</label>
+                <input type="text" #lastnameField = 'ngModel' class="form-control"  [(ngModel)]="userCredentials.lastname" required name="lastname"  placeholder="Darko">
+                <small [hidden] = "lastnameField.valid || lastnameField.untouched">lastname is required</small>
+              </div>
+    
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email</label>
+              <input type="email" #usernameField = 'ngModel' class="form-control"  [(ngModel)]="userCredentials.email" required name="email"  placeholder="name@example.com">
+              <small [hidden] = "usernameField.valid || usernameField.untouched">email is required</small>
+            </div>
+    
+          
+            <div class="btn-container">
+            
+              <button type="submit" [disabled] = "form.invalid" class="btn btn-primary mb-3">
+                <span *ngIf ="show" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Submit
+              </button>
+            </div>
+            <div class="mb-3 pass">
+                <span  data-bs-toggle="modal" data-bs-target="#exampleModal">Change password?</span>
+              </div>
+          </form>
+        </div>
+      </div>
+</main>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">update Password</h5>
+        </div>
+        <div class="modal-body">
+            <form action="" [formGroup] ="registerForm" (ngSubmit)= "updatePassword()">
+                <span *ngIf="errormsg">{{errormsg}}</span>
+        
+                <div formGroupName="passwordGroup">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">New Password</label>
+                    <input type="password" class="form-control" name="password" formControlName="password"  placeholder="######">
+                    <div>
+                      <span *ngIf="registerForm.get('passwordGroup.password')?.errors?.['required'] && registerForm.get('passwordGroup.password')?.touched">password is required</span>
+                      <span *ngIf="registerForm.get('passwordGroup.password')?.errors?.['minlength'] && registerForm.get('passwordGroup.password')?.touched">password must be six characters or more</span>
+                    </div>
+                  
+                  </div>
+        
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" name="confirmPassword" formControlName="confirmPassword"  placeholder="######">
+                    <div>
+                      <span *ngIf="registerForm.get('passwordGroup.confirmPassword')?.errors?.['required'] && registerForm.get('passwordGroup.confirmPassword')?.touched">Confirm password is required</span>
+                      <span *ngIf="registerForm.get('passwordGroup.confirmPassword')?.errors?.['minlength'] && registerForm.get('passwordGroup.confirmPassword')?.touched">password must be six characters or more</span>
+                      <span *ngIf="registerForm.get('passwordGroup')?.errors?.['match']">Passwords do not match</span>
+                    </div>
+                  </div>
+                </div>
+        
+                
+        
+                <div class="btn-container">
+                  <button type="submit" [disabled] ="registerForm.invalid" class="btn btn-primary mb-3">
+                    <small *ngIf ="show" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></small>
+                    Submit
+                  </button>
+                </div>
+              </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+

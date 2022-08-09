@@ -1,0 +1,47 @@
+<main>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">update Book</h5>
+          <form action="" #form="ngForm" (ngSubmit)="updateBook()">
+            <small *ngIf="errormsg">{{errormsg}}</small>
+    
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Title</label>
+              <input type="text" #titleField = 'ngModel' class="form-control"  [(ngModel)]="filedetails.title" required name="email"  placeholder="title">
+              <small [hidden] = "titleField.valid || titleField.untouched">title is required</small>
+            </div>
+    
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Author</label>
+              <input type="text" #authorField = 'ngModel' class="form-control" [(ngModel)]="filedetails.author" required name="author" placeholder="author">
+              <small [hidden] = "authorField.valid || authorField.untouched">author is required</small>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Category</label>
+                <input type="text" #categoryField = 'ngModel' class="form-control" [(ngModel)]="filedetails.category" required name="category" placeholder="category">
+                <small [hidden] = "categoryField.valid || categoryField.untouched">category is required</small>
+              </div>
+
+              <!-- <div class="mb-3">[.p] -->
+                <!-- <label for="exampleFormControlInput1" class="form-label">Select img</label> -->
+                <!-- <input type="file"  class="form-control"   name="Image" (change) ="selectImage($event)" > -->
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                    <input type="file"  class="form-control" name="Image" (change) ="selectImage($event)" id="inputGroupFile01">
+                  </div>
+                <!-- <small [hidden] = "description.valid || description.untouched">description is required</small> -->
+              <!-- </div> -->
+    
+            <div class="btn-container">
+            
+              <button type="submit" [disabled] = "form.invalid" class="btn btn-primary mb-3">
+                <span *ngIf ="show" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Submit
+              </button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+</main>
+

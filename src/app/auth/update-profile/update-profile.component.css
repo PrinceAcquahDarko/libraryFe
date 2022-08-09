@@ -1,0 +1,66 @@
+main{
+    padding: 70px 0;
+}
+
+.card{
+    width:21rem;
+    min-height:20rem;
+    border:none;
+    margin:auto;
+    color: rgb(255, 255, 255) !important;
+
+}
+
+
+.btn-close{
+    background:white;
+}
+
+
+.modal-content {
+    background-color: #202124;
+}
+
+
+
+.card-body > h5{
+    text-align: center;
+}
+.pass{
+    text-align: right;
+    text-decoration: underline;
+}
+
+.pass > span{
+    color:white;
+    cursor: pointer;
+}
+
+small, span{
+    color: red;
+}
+
+
+form {
+    margin-top: 40px;
+}
+
+.btn-container{
+    margin-top: 2em;
+    /* margin-bottom: 5em; */
+    text-align: center;
+}
+
+
+button{
+    border-radius:20px;
+    padding: 10px 30px 10px 30px;
+}
+
+@media only screen and (max-width: 800px) {
+    .card{
+        width:18rem;
+       margin:auto
+    }
+    
+}

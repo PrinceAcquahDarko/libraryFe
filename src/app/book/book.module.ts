@@ -4,6 +4,8 @@ import { BookComponent } from './book.component';
 import { BookdetailComponent } from './bookdetail/bookdetail.component';
 import {SharedModule} from "../shared/shared.module"
 import { RouterModule, Routes } from '@angular/router';
+import { IssuedComponent } from './issued/issued.component';
+import { UpdateBookComponent } from './update-book/update-book.component';
 
 const routes: Routes = [
  
@@ -11,15 +13,21 @@ const routes: Routes = [
         path: '', component: BookComponent
       },
       {
-        path: 'book/:id', component: BookdetailComponent
-      }
+        path: 'issue', component: IssuedComponent
+      },
+      {
+        path: 'bookdetail', component: BookdetailComponent
+      },
+      
   
 ];
 
 @NgModule({
   declarations: [
     BookComponent,
-    BookdetailComponent
+    BookdetailComponent,
+    IssuedComponent,
+    UpdateBookComponent
   ],
   imports: [
     CommonModule,

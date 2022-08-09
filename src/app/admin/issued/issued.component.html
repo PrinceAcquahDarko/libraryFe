@@ -1,0 +1,83 @@
+<app-header>
+</app-header>
+
+<main class="bookscontainer">
+    <!-- <section class="ifNo" *ngIf = "(candidateswithAdded$ | async)?.length ==0">
+        <div>
+            <h2>Hey you have no Registered candidates....start by registering candidates</h2>
+            <div class="but">
+              <button type="button" class="btn btn-primary mb-3 btn-lg" (click)="launchdemo()">Register</button>
+
+            </div>
+        </div>
+
+    </section> -->
+
+    <section class="contain" *ngIf="issuedBooks$ | async as allBook else loadingOrError">
+    
+      <div class="example-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">title</th>
+              <th scope="col">Author</th>
+              <th scope="col">Complained</th>
+              <th scope="col">return</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let books of allBook ">
+              <td>{{books.book.title}}</td>
+              <td>{{books.book.author}}</td>
+              <td (click)="complain(books.complains)" data-bs-toggle="modal" data-bs-target="#exampleModal"><a class="return">{{books.complains ? 'true' : 'false'}}</a></td>
+              <td>{{books.returned}}</td>
+       
+            </tr>
+         
+          </tbody>
+        </table>
+      </div>
+        
+
+        
+  
+    </section>
+    <ng-template #loadingOrError>
+      <ng-container *ngIf="errormsg; else loading">
+        <div  class="errors">
+          <div>
+            {{errormsg}}
+    
+          </div>
+    
+        </div>
+      </ng-container>
+      <ng-template #loading>
+        <div  class="errors">
+          <div>
+            <span  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+
+    
+          </div>
+    
+        </div>
+      </ng-template>
+    </ng-template>
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+        </div>
+        <div class="modal-body">
+            <input type="text" #complains = 'ngModel' class="form-control" [(ngModel)]="info.complain" required name="comaplain" placeholder="complain">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" #modall class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

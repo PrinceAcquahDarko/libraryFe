@@ -5,20 +5,38 @@ main{
 .card{
     width:21rem;
     min-height:20rem;
-    background: rgb(6, 17, 60);
     border:none;
     margin:auto;
     color: rgb(255, 255, 255) !important;
 
 }
 
+.modal-footer{
+    background-color: #202124;
+}
+
+.btn-close{
+    background:white;
+}
+
+
+.modal-content {
+    background-color: #202124;
+}
+
+
 
 .card-body > h5{
     text-align: center;
 }
 .pass{
-    text-align: right;
+    display:flex;
+    justify-content:space-between;
     text-decoration: underline;
+}
+
+.pass > span{
+    cursor: pointer;
 }
 
 small{

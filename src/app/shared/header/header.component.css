@@ -1,6 +1,8 @@
 .navbar{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width:80%;
+    margin:auto;
 }
 
 
@@ -23,10 +25,10 @@ a{
 .inputContainer > input{
     width: 450px;
     background-color: #292a2d;
-    border-color: #292a2d;
     color:white;
+    border-color: #292a2d;
 }
 
-ul{
+ul,a{
     background-color: #292a2d;
 }

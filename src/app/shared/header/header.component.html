@@ -6,50 +6,20 @@
             The Library
           </a>
         </div>
-        <div>
-            <div class="mb-3 inputContainer">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="search for book">
-              </div>
-        </div>
+      
         <div>
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown button
+                  {{userInfo?.fullname ? userInfo.fullname : ''}}
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li  *ngIf="userInfo"><a class="dropdown-item"  (click)="issuedbook()">Issued books</a></li>
+                  <li *ngIf="userInfo" (click)="user()"><a class="dropdown-item" >status: {{userInfo?.admin ? 'admin' : 'user'}}</a></li>
+                  <li *ngIf="userInfo?.admin"><a class="dropdown-item" >create book</a></li>
+                  <li (click)="auth()" ><a class="dropdown-item" >{{userInfo ? 'logout' : 'login'}}</a></li>
                 </ul>
               </div>
         </div>
       </nav>
-      <!-- <nav>
-          <div class="navbar-brand">
-            Our Library
-          </div>
-          <div>
-                <div class="input-group mb-3 searchbar">
-                        <input type="text" class="form-control search" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <span class="input-group-text" id="basic-addon2">@.com</span>
-                  </div>
-          </div>
-          <div>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-             
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li>
-               
-              </ul>
-          </div>
-      </nav> -->
+    
 </header>

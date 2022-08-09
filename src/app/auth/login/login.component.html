@@ -25,10 +25,33 @@
               </button>
             </div>
             <div class="mb-3 pass">
-                <span>Forgot password?</span>
+              <span >Sign Up</span>
+
+                <span  data-bs-toggle="modal" data-bs-target="#exampleModal">Forgot password?</span>
               </div>
           </form>
         </div>
       </div>
 </main>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{emailmsg}}</h5>
+        </div>
+        <div class="modal-body">
+            <input type="email" #email = 'ngModel' class="form-control" [(ngModel)]="updatePass.email" required name="email" placeholder="info@gmail.com">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" #modall class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="confirmEmail()" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
 

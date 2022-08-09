@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true, 
+  url: 'https://whispering-coast-97894.herokuapp.com'
 };

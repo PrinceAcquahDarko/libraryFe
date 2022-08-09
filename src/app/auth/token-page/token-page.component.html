@@ -1,0 +1,32 @@
+<main>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Please enter code sent you</h5>
+          <form action="" #form="ngForm" (ngSubmit)="validateToken()">
+            <small *ngIf="errormsg">{{errormsg}}</small>
+    
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Code</label>
+              <input type="email" #tokenField = 'ngModel' class="form-control"  [(ngModel)]="userCredentials.token" required name="code"  placeholder="please enter code">
+              <small [hidden] = "tokenField.valid || tokenField.untouched">token is required</small>
+            </div>
+    
+    
+            <div class="btn-container">
+            
+              <button type="submit" [disabled] = "form.invalid" class="btn btn-primary mb-3">
+                <span *ngIf ="show" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Submit
+              </button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+</main>
+
+
+
+  
+
+
