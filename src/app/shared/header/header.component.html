@@ -9,10 +9,18 @@
       
         <div>
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{userInfo?.fullname ? userInfo.fullname : ''}}
+                <button *ngIf="userInfo?.fullname" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{userInfo.fullname}}
                 </button>
+                <button *ngIf="!userInfo?.fullname" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                  </svg>
+                </button>
+                
                 <ul class="dropdown-menu">
+                  
+                  <li><a class="dropdown-item" (click)="allBooks()">books</a></li>
                   <li  *ngIf="userInfo"><a class="dropdown-item"  (click)="issuedbook()">Issued books</a></li>
                   <li *ngIf="userInfo" (click)="user()"><a class="dropdown-item" >status: {{userInfo?.admin ? 'admin' : 'user'}}</a></li>
                   <li *ngIf="userInfo?.admin"><a class="dropdown-item" >create book</a></li>

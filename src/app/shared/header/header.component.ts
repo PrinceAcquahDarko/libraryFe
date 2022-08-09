@@ -39,4 +39,9 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  allBooks(){
+   return this.router.navigate(['/'])
+
+  }
+
 }

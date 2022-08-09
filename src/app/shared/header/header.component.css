@@ -18,6 +18,10 @@ a{
     color:white;
 }
 
+svg{
+    margin-top:-10px
+}
+
 .dropdown-toggle:hover{
     border:none
 }
@@ -29,6 +33,25 @@ a{
     border-color: #292a2d;
 }
 
-ul,a{
+ul{
     background-color: #292a2d;
 }
+
+ul > li > a{
+    background-color: #292a2d;
+}
+
+
+
+
+@media only screen and (max-width: 800px) {
+  
+    svg{
+        margin-top:-8px
+    }
+
+    .navbar{
+        width:100%;
+    }
+    
+  }

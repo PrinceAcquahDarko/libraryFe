@@ -36,7 +36,7 @@ export class AdminService {
   }
 
   public adminRegister(data:Iregister): Observable<any>{
-    return this.http.post<Iregister>(this.url + '/user/register'+ '?admin=' + true, data)
+    return this.http.post<Iregister>(this.url + '/api/v1/user/register'+ '?admin=' + true, data)
     .pipe(
       catchError(this.handleError)
     )
