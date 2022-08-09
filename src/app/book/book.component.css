@@ -54,6 +54,9 @@ main{
     width: 100%;
     background: #292a2d;
 }
+.card > img{
+  height:200px
+}
 .card-title{
     cursor: pointer;
 }
