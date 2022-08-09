@@ -47,6 +47,7 @@ export class BookComponent implements OnInit {
     
     }),
     catchError(err => {
+    console.log(err, 'from err')
       this.errormsg = 'an unexpected error occured please try again later'
       return throwError(err)
     })
