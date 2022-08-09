@@ -45,7 +45,7 @@ ul > li > a{
 
 
 @media only screen and (max-width: 800px) {
-    ul{margin-left: 20px}
+    ul{margin-right: 25px}
   
     svg{
         margin-top:-8px

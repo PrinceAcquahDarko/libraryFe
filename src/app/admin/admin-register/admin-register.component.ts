@@ -58,14 +58,12 @@ export class AdminRegisterComponent implements OnInit {
           this.router.navigate(['/'])
         },
         err => {
-          console.log(err)
           this.errormsg = err.message;
           this.show = false
 
         }
       )
     }
-    // alert(this.registerForm.value)
   }
 
   formatValue(){
