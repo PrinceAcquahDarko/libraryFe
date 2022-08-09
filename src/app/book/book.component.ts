@@ -43,7 +43,7 @@ export class BookComponent implements OnInit {
     )
   ]).pipe(
     map(([books, book]) => {
-        return books.filter((i: { title: string; }) => book ?  i.title.includes(book) : true)
+        return books.filter((i: { title: string; }) => book ?  i.title.toLowerCase().includes(book.toLowerCase()) : true)
     
     }),
     catchError(err => {
