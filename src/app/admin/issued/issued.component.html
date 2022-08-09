@@ -20,7 +20,7 @@
           <thead>
             <tr>
               <th scope="col">title</th>
-              <th scope="col">Author</th>
+              <th scope="col">Name</th>
               <th scope="col">Complained</th>
               <th scope="col">return</th>
             </tr>
@@ -28,7 +28,7 @@
           <tbody>
             <tr *ngFor="let books of allBook ">
               <td>{{books.book.title}}</td>
-              <td>{{books.book.author}}</td>
+              <td>{{books.user.firstname}}</td>
               <td (click)="complain(books.complains)" data-bs-toggle="modal" data-bs-target="#exampleModal"><a class="return">{{books.complains ? 'true' : 'false'}}</a></td>
               <td>{{books.returned}}</td>
        
