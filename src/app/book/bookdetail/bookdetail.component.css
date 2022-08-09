@@ -36,6 +36,9 @@
     .card{
         margin:auto;
     }
+    .card > img{
+        height:250px
+      }
     
   }
   
