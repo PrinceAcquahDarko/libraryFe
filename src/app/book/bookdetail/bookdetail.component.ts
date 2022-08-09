@@ -8,7 +8,8 @@ import { BookService } from '../book.service';
   styleUrls: ['./bookdetail.component.css']
 })
 export class BookdetailComponent implements OnInit {
-
+  issued!:string;
+  deletedmsg!:string
   userInfo:any;
   book:any
   bookId: any
@@ -28,9 +29,9 @@ export class BookdetailComponent implements OnInit {
   issuebook(){
     return this._bs.issueBook(this.bookId).subscribe(
       res => {
-       console.log(res)
+        this.issued = res.message
       },
-      err => console.log(err)
+      err => this.issued  = err.message
     )
   }
 
@@ -52,7 +53,19 @@ export class BookdetailComponent implements OnInit {
     this.router.navigate(['admin/updateBook', {bookId: this.bookId}])
   }
 
-  deleteBook(){}
+  deleteBook(){
+    return this._bs.deletebook(this.bookId).subscribe(
+      res => {
+        // this.de
+        this.router.navigateByUrl('/book', {state: {res:this.bookId}})
+
+
+      },
+      err => {
+        this.deletedmsg = err.message
+      }
+    )
+  }
 
 
 }

@@ -4,6 +4,7 @@
           <h5 class="card-title">UPDATE USER FORM</h5>
           <form action="" #form="ngForm" (ngSubmit)="updateUser()">
             <small *ngIf="errormsg">{{errormsg}}</small>
+            <small class="greenc" *ngIf="successmsg">{{successmsg}}</small>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Firstname</label>
                 <input type="text" #firstnameField = 'ngModel' class="form-control"  [(ngModel)]="userCredentials.firstname" required name="firstname"  placeholder="Prince">

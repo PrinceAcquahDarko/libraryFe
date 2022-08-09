@@ -67,6 +67,18 @@ export class BookService {
       );
   }
 
+  public deletebook(id:string): Observable<any> {
+    return this.http
+      .get<any>(this.url + '/api/v1/book/id'+ '?bookId=' + id)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+
+
+  
+
   handleError(err:HttpErrorResponse){
     let message = '';
 

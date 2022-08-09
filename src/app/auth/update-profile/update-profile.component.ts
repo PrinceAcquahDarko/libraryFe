@@ -23,7 +23,9 @@ function passwordMatcher(c: AbstractControl): { [key:string]: boolean } | null {
 })
 export class UpdateProfileComponent implements OnInit {
   errormsg = ''
+  successmsg = ''
   show = false
+  initial_name!:string
   userCredentials = {
     firstname: '',
     lastname: '',
@@ -46,6 +48,7 @@ export class UpdateProfileComponent implements OnInit {
         this.userCredentials.firstname = res.loginUser.firstname;
         this.userCredentials.lastname = res.loginUser.lastname;
         this.userCredentials.email = res.loginUser.email;
+        this.initial_name = res.loginUser.firstname
       }
     )
   }
@@ -56,6 +59,7 @@ export class UpdateProfileComponent implements OnInit {
       res => {
         //alert
         this.show = false;
+        this.successmsg = res.message
         console.log('changed successfully')
       },
       err => {
@@ -72,6 +76,11 @@ export class UpdateProfileComponent implements OnInit {
       res => {
         //alert
         this.show = false;
+        this.successmsg = res.message
+        if(this.initial_name !== this.userCredentials.firstname){
+          this.changeFirstname()
+        }
+
         console.log('changed successfully')
       },
       err => {
@@ -86,6 +95,13 @@ export class UpdateProfileComponent implements OnInit {
     return {
       password : this.registerForm.value.passwordGroup.password
     }
+  }
+
+  changeFirstname(){
+    const user = JSON.parse(localStorage.getItem('user')!)
+    user.fullname = this.userCredentials.firstname;
+    localStorage.setItem('user', JSON.stringify(user));
+
   }
 
 }

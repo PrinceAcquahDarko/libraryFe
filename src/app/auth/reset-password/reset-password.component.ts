@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 
@@ -37,7 +37,8 @@ export class ResetPasswordComponent implements OnInit {
 
   })
   userEmail:any
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private _as:AuthService) { }
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private _as:AuthService, 
+    private router:Router) { }
 
   ngOnInit(): void {
     this.userEmail = this.route.snapshot.paramMap.get("email")
@@ -51,7 +52,8 @@ export class ResetPasswordComponent implements OnInit {
     this._as.updatePassword(password, this.userEmail).subscribe(
       res =>{
         this.show = false;
-        console.log(res)
+        this.router.navigate(['auth/login'])
+
       },
       err => {
         this.show = false;

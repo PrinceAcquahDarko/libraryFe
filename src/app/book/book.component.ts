@@ -95,6 +95,10 @@ export class BookComponent implements OnInit {
     if(book._id){
       this.insertedbook.next(book)
     }
+    if(book.res){
+      this.insertedbook.next(book.res)
+
+    }
 
   }
 

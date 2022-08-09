@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-8">
             <div class="card">
-                <img src="assets/default.jpg" class="card-img-top" alt="...">
+                <img [src]="book.link" class="card-img-top" [alt]="book.firstname">
                 <div class="card-body">
                   <h5 class="card-title">{{book.title}}</h5>
                 </div>
@@ -24,19 +24,20 @@
   
                      <h5>Summary </h5>
                      <p>Lorem ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi vero saepe voluptatem esse ipsum fuga placeat libero totam maxime. sit amet consectetur adipisicing elit. Hic sunt magni quisquam quibusdam pariatur repellat dolores sapiente praesentium illo ipsa!</p>
-                     <div *ngIf="!userInfo.admin">
-                       <a href="#" class="btn btn-primary">Issue</a>
+                     <p>{{issued}}</p>
+                     <div *ngIf="!userInfo.admin" class="issuebtn">
+                       <a (click)="issuebook()" class="btn btn-primary">Issue</a>
                      </div>
-  
+                     
+                     <p>{{deletedmsg}}</p>
+
                      <div *ngIf="userInfo.admin" class="adminbtns">
-                      <button type="button" (click)="updateBook()" class="btn btn-outline-danger"  (click)="deleteBook()">Update</button>
-                      <!-- <a  class="btn btn-primary" (click)="updateBook()">Update</a> -->
-                      <!-- <a  class="btn btn-primary">Delete</a> -->
+                      <button type="button" (click)="updateBook()" class="btn btn-outline-primary"  (click)="deleteBook()">Update</button>
                       <button type="button" class="btn btn-outline-danger"  (click)="deleteBook()">Delete</button>
                     </div>
                 </div>
         
-                 
+                
                 </div>
                
                  
