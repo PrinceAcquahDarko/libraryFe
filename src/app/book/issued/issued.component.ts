@@ -72,7 +72,7 @@ export class IssuedComponent implements OnInit {
       res => {
         this.insertedbook.next({
           command: 'return',
-          id: this.bookId
+          id
         })
       },
       err => {
