@@ -18,7 +18,7 @@ The [Library Management system](https://library-app-phi.vercel.app/) has two use
 
 ## Additional functionalites
 
-- password reset throw otp via email
+- password reset through otp via email
 
 
 
