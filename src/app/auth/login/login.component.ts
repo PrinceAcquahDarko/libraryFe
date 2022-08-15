@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
 
           this.router.navigate(['auth/token', {email: this.updatePass.email}])
         },
-        err => {console.log(err)}
+        err => this.emailmsg = err.message
       )
     }
     
