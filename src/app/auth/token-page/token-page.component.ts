@@ -28,7 +28,7 @@ export class TokenPageComponent implements OnInit {
       res => {console.log(res); this.show = false; 
         this.router.navigate(['auth/reset-password', {email: this.userEmail}])
       },
-      err => {this.errormsg = err.message; this.show = false}
+      err => {this.errormsg = err; this.show = false}
     )
   }
 
